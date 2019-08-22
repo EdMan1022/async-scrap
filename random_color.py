@@ -25,7 +25,11 @@ async def make_random(idx: int, threshold: int = 6) -> int:
 
 
 async def main():
-    res = await asyncio.gather(*(make_random(i, 10 - i - 1) for i in range(3)))
+    res = await asyncio.gather(
+        make_random(0, 5),
+        make_random(1, 9),
+        make_random(2, 6)
+    )
     return res
 
 if __name__ == "__main__":
